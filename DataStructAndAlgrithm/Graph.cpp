@@ -1,7 +1,7 @@
 #include "Graph.h"
 #include<set>
 #include<queue>
-
+#include<cstring>
 
 
 
@@ -29,7 +29,7 @@ Graph::Graph( int adjM[NodeNum][NodeNum]) :nodeNum(NodeNum)
 		if (INF == Adj[i]->neighbor->num)
 			Adj[i]->neighbor = nullptr;
 	}
-	/*±ß³¤ÎÞÈ¨Öµ
+	/*ï¿½ß³ï¿½ï¿½ï¿½È¨Öµ
 	* 	for (int i = 0; i < nodeNum; i++)
 	{		
 		Adj[i] = new GraphNode(i + 1);
@@ -404,11 +404,11 @@ int Graph::getPathNum(GraphNode* strt, GraphNode* end)
 
 int Graph::getPathNum1(GraphNode* strt, GraphNode* end)
 {
-	/*¸ø½áµã¸½¼ÓÒ»¸ö¼ÆÊýÊôÐÔtime£¬³õÊ¼»¯ t.time = 1£¬
-	ÆäËüµÄ time ¾ùÎª 0 £¬ÒÔ s ÎªÔ´½áµã½øÐÐ DFS£¬
-	Ò»µ©ËÑË÷µ½ t£¬Ôò t ÂíÉÏ×ÅºÚÉ«£¨¼´²»¼ÌÐøËÑË÷ t µÄºó´ú£©¡£
-	Ã¿µ±½áÊøÒ»¸ö½áµãµÄËÑË÷£¬Ôò¸Ã½áµãµÄ time ÊôÐÔ = ¸Ã½áµãËùÖ¸ÏòµÄËùÓÐ½áµãµÄ time Ö®ºÍ¡£
-	×îºó s.time ¼´Â·¾¶ÌõÊý¡£*/
+	/*ï¿½ï¿½ï¿½ï¿½ã¸½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½timeï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ t.time = 1ï¿½ï¿½
+	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ time ï¿½ï¿½Îª 0 ï¿½ï¿½ï¿½ï¿½ s ÎªÔ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ DFSï¿½ï¿½
+	Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ tï¿½ï¿½ï¿½ï¿½ t ï¿½ï¿½ï¿½ï¿½ï¿½Åºï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ t ï¿½Äºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã½ï¿½ï¿½ï¿½ time ï¿½ï¿½ï¿½ï¿½ = ï¿½Ã½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð½ï¿½ï¿½ï¿½ time Ö®ï¿½Í¡ï¿½
+	ï¿½ï¿½ï¿½ s.time ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 	for (int i = 0; i < nodeNum; i++)
 	{
 		Adj[i]->color = Color::WHITE;
@@ -479,7 +479,7 @@ void Graph::dijkstra(int nodeIdx)
 				if (Color::WHITE ==Adj[nb->num-1]->color)
 				{
 					minHeap.push(Adj[nb->num - 1]);
-					Adj[nb->num - 1]->color = Color::GRAY;//Ê¹ÓÃÑÕÉ«ÏÞÖÆ£¬±£Ö¤Ã¿¸ö½ÚµãÖ»Èë¶ÑÒ»´Î
+					Adj[nb->num - 1]->color = Color::GRAY;//Ê¹ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½Æ£ï¿½ï¿½ï¿½Ö¤Ã¿ï¿½ï¿½ï¿½Úµï¿½Ö»ï¿½ï¿½ï¿½Ò»ï¿½ï¿½
 				}		
 			}
 			//nb.relaxation end
@@ -532,12 +532,12 @@ void Graph::initSingleSource(int nodeIdx)
 MetrixGraph::MetrixGraph(const int& l, const int& c, const vector<vector<int>>& met) :line(l), column(c) {
 /*
 * leetcode542
-* Ëã·¨ÃèÊö£º01¾ØÕóÖÐÃ¿¸ö½ÚµãÓëÉÏÏÂ×óÓÒÏàÁ¬ÇÒ¾àÀë1£¬Çó³öÃ¿¸ö1½ÚµãÀë×î½ü0½ÚµãµÄ×î¶Ì¾àÀë
+* ï¿½ã·¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½01ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò¾ï¿½ï¿½ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½1ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0ï¿½Úµï¿½ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½
 * 1.init each 0 as color of gray and push into queue
 * 2.BFS the metrix graph,each layer distance++
 */
 
-	metGraph.resize(l, vector<MetrixNode*>(c, nullptr));//vector ³õÊ¼»¯
+	metGraph.resize(l, vector<MetrixNode*>(c, nullptr));//vector ï¿½ï¿½Ê¼ï¿½ï¿½
 	deque< MetrixNode*> que;
 
 	for (int i = 0; i < l; i++)

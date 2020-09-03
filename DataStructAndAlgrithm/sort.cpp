@@ -1,5 +1,6 @@
 #include<iostream>
 #include "Sort.h"
+#include<cstring>
 
 void QuickSort::sort(int arr[], int len)
 {
@@ -11,7 +12,7 @@ void QuickSort::quicksort(int arr[], int left, int right)
 {
 	if (left < right)
 	{
-		int pivotIdx = partition(arr, left, right);//·Ö¿éÔ­ÐòÁÐ£¬²¢Êä³öÖÐ¼äÎ»ÖÃ
+		int pivotIdx = partition(arr, left, right);//ï¿½Ö¿ï¿½Ô­ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½Î»ï¿½ï¿½
 		quicksort(arr, left, pivotIdx - 1);
 		quicksort(arr, pivotIdx + 1, right);
 	}
@@ -21,13 +22,13 @@ void QuickSort::quicksort(int arr[], int left, int right)
 int QuickSort::partition(int arr[], int left, int right)
 {
 	/*
-	* Á½¸öÖ¸Õë j£¨¿ì£© ºÍ smallEdge£¨Âý£©,Ò»¸ö»ù×¼Öµ¡£
-	* ±éÀúleftµ½right£¬Ã¿´Îj++
-	* Ö»ÓÐÓöµ½Ð¡ÊýÊ±smallEdge++²¢½»»»Á½¸öÖ¸ÕëÏÂµÄÊý,¼´°ÑÐÂµÄÐ¡Êý»»¹ýÀ´£¬ÒòÎªsmallEdgeºóÃæÒ»¸öÊýÎª´óÊý
+	* ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ jï¿½ï¿½ï¿½ì£© ï¿½ï¿½ smallEdgeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,Ò»ï¿½ï¿½ï¿½ï¿½×¼Öµï¿½ï¿½
+	* ï¿½ï¿½ï¿½ï¿½leftï¿½ï¿½rightï¿½ï¿½Ã¿ï¿½ï¿½j++
+	* Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½Ê±smallEdge++ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªsmallEdgeï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½
 	*/
 	int pivot = arr[right];
-	int smallEdge = left - 1;//¸ÃÎ»ÖÃÎªÐ¡ÔªËØµÄ×îÓÒ±ß½ç
-	for (int j = left; j < right; j++)//ÓÃj±éÀúÕû¸öÊý×é
+	int smallEdge = left - 1;//ï¿½ï¿½Î»ï¿½ï¿½ÎªÐ¡Ôªï¿½Øµï¿½ï¿½ï¿½ï¿½Ò±ß½ï¿½
+	for (int j = left; j < right; j++)//ï¿½ï¿½jï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	{
 		if (arr[j] < pivot)
 		{
@@ -35,7 +36,7 @@ int QuickSort::partition(int arr[], int left, int right)
 			swap(arr[smallEdge], arr[j]);
 		}
 	}
-	smallEdge++;//½áÊøºó£¬½«×îºóÔªËØ£¨pivot£©ÓëÐ¡ÔªËØ±ß½çºóµÄÒ»¸öÔªËØÌæ»»Î»ÖÃ£¬´Ó¶øÊ¹Æä³ÉÎªÖÐ¼äÔªËØ
+	smallEdge++;//ï¿½ï¿½ï¿½ï¿½ï¿½ó£¬½ï¿½ï¿½ï¿½ï¿½Ôªï¿½Ø£ï¿½pivotï¿½ï¿½ï¿½ï¿½Ð¡Ôªï¿½Ø±ß½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ôªï¿½ï¿½ï¿½æ»»Î»ï¿½Ã£ï¿½ï¿½Ó¶ï¿½Ê¹ï¿½ï¿½ï¿½Îªï¿½Ð¼ï¿½Ôªï¿½ï¿½
 	swap(arr[smallEdge], arr[right]);
 
 	return smallEdge;
@@ -62,7 +63,7 @@ void MergeSort::merge(int arr[], int left, int mid, int end)
 {
 	int k = 0;
 	int i = left;
-	int j = mid + 1;//×¢ÒâÕâÀïµÄ¸³Öµ£¬ÐèÒª²Î¿¼Íâ²¿µÝ¹éÊ±·Ö¸îµÄÎ»ÖÃ
+	int j = mid + 1;//×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½Öµï¿½ï¿½ï¿½ï¿½Òªï¿½Î¿ï¿½ï¿½â²¿ï¿½Ý¹ï¿½Ê±ï¿½Ö¸ï¿½ï¿½Î»ï¿½ï¿½
 	int* tmp = new int[end - left + 1];
 
 	while (i <= mid && j <= end)
