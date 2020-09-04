@@ -407,9 +407,9 @@ int Graph::getPathNum1(GraphNode* strt, GraphNode* end)
 {
 	/*����㸽��һ����������time����ʼ�� t.time = 1��
 	������ time ��Ϊ 0 ���� s ΪԴ������ DFS��
-	һ�������� t���� t �����ź�ɫ�������������� t �ĺ������
-	ÿ������һ��������������ý��� time ���� = �ý����ָ������н��� time ֮�͡�
-	��� s.time ��·��������*/
+	һ�������� t���� t �����ź�ɫ�������������� t �ĺ������?
+	ÿ������һ��������������ý���?time ���� = �ý����ָ������н��� time ֮�͡�
+	���?s.time ��·��������*/
 	for (int i = 0; i < nodeNum; i++)
 	{
 		Adj[i]->color = Color::WHITE;
@@ -480,7 +480,7 @@ void Graph::dijkstra(int nodeIdx)
 				if (Color::WHITE ==Adj[nb->num-1]->color)
 				{
 					minHeap.push(Adj[nb->num - 1]);
-					Adj[nb->num - 1]->color = Color::GRAY;//ʹ����ɫ���ƣ���֤ÿ���ڵ�ֻ���һ��
+					Adj[nb->num - 1]->color = Color::GRAY;//ʹ����ɫ���ƣ���֤ÿ���ڵ�ֻ���һ��?
 				}		
 			}
 			//nb.relaxation end
@@ -533,7 +533,7 @@ void Graph::initSingleSource(int nodeIdx)
 MetrixGraph::MetrixGraph(const int& l, const int& c, const vector<vector<int>>& met) :line(l), column(c) {
 /*
 * leetcode542
-* �㷨������01������ÿ���ڵ����������������Ҿ���1�����ÿ��1�ڵ������0�ڵ����̾���
+* �㷨������01������ÿ���ڵ����������������Ҿ���1�����ÿ��?�ڵ������?�ڵ����̾���
 * 1.init each 0 as color of gray and push into queue
 * 2.BFS the metrix graph,each layer distance++
 */
@@ -588,9 +588,7 @@ void MetrixGraph::print()
 	for (int i = 0; i < line; i++)
 	{
 		for (int j = 0; j < column; j++)
-		{
 			cout << metGraph[i][j]->dist2Zero << " ";
-		}
 		cout << endl;
 	}
 } 
@@ -610,28 +608,10 @@ TmpNode* Graph::cloneGraph(TmpNode* node){
 	TmpNode* res = nullptr;
 	if (!node)
 		return nullptr;
-	
-	set<TmpNode*> nodeSet;
 	map<TmpNode*,TmpNode*> in2out;
 	res = cloneGraphHelp(node,in2out);
 	return res;
 }
 
-// TmpNode* Graph::cloneGraphHelp(TmpNode* node,set<TmpNode*>& nodeSet){
-// 	TmpNode* res = new TmpNode(node->val);
-// 	if (node->neibors.empty())
-// 		return res;
-// 	pair<set<TmpNode*>::iterator,bool> pInsert;
-// 	pInsert = nodeSet.insert(node);
-// 	if (pInsert.second)
-// 	{
-// 		for (int i = 0; i < node->neibors.size(); i++)
-// 		{ 
-// 			TmpNode* nei  = cloneGraphHelp(node->neibors[i],nodeSet);
-// 			res->neibors.push_back(nei);
-// 		}
-// 	}
-// 	return res;
-// }
 
 
