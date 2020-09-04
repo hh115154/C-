@@ -12,18 +12,20 @@
 #include"TreeNode.h"
 #include"Graph.h"
 #include<algorithm>
+#include<set>
+#include<map>
 
 using namespace std;
 int main()
 {
     int len = 10;
     int arr[] = { -87,34,-6,-18,-75,9,19,-30,129,-6 };
-    sort(arr, arr+len);
+    // sort(arr, arr+len);
 
     //********sort***********
     //Sort* sort = new QuickSort();
-    Sort* sort = new MergeSort();
-    sort->sort(arr, len);
+    // Sort* sort = new MergeSort();
+    // sort->sort(arr, len);
     //delete sort;
 
     //********LinkList**********
@@ -57,10 +59,10 @@ int main()
     //list[2] = l3;
     //Heap::MergeKSortedList(list, 3);
     //Heap::MergeKSortedList1(list, 3);
-    vector<int> vec = { 87,34,-6,-18,-75,9,19,-30,129,-6 };
-    TestNode* head = new TestNode(vec);
-    NodeHeap nHeap(head);
-    nHeap.updateSrc(4, 100);//cannot update the sequence of heap
+    // vector<int> vec = { 87,34,-6,-18,-75,9,19,-30,129,-6 };
+    // TestNode* head = new TestNode(vec);
+    // NodeHeap nHeap(head);
+    // nHeap.updateSrc(4, 100);//cannot update the sequence of heap
 
     //hash_map
     //case1
@@ -205,25 +207,55 @@ int main()
     //    cout << endl;
     //}
 
-
-    vector<vector<int>> sampMet = { {0,0,0},
-                                 {0,1,0},
-                                 {1,1,1} };
+    // //leetcode542
+    // vector<vector<int>> sampMet = { {0,0,0},
+    //                              {0,1,0},
+    //                              {1,1,1} };
     
-    MetrixGraph* metG = new MetrixGraph(3, 3, sampMet);
-    metG->print();
-    int sampleMatix[NodeNum][NodeNum] = { {0,  10, 5,  INF,INF},
-                                          {INF,0,  2,  1,  INF},
-                                          {INF,3,  0,  1,  2},
-                                          {INF,1,INF,0,  4},
-                                          {7,  INF,INF,6,  0, } };
-    Graph* gr = new Graph(sampleMatix);
-    gr->dijkstra(0);
+    // MetrixGraph* metG = new MetrixGraph(3, 3, sampMet);
+    // metG->print();
+
+    // //dijkstra shortest pass
+    // int sampleMatix[NodeNum][NodeNum] = { {0,  10, 5,  INF,INF},
+    //                                       {INF,0,  2,  1,  INF},
+    //                                       {INF,3,  0,  1,  2},
+    //                                       {INF,1,INF,0,  4},
+    //                                       {7,  INF,INF,6,  0, } };
+    // Graph* gr = new Graph(sampleMatix);
+    // gr->dijkstra(0);
 
 
+    //leetcode133,clone graph
+    
+    TmpNode* node1 = new TmpNode(1);
+    TmpNode* node2 = new TmpNode(2);
+    TmpNode* node3 = new TmpNode(3);
+    TmpNode* node4 = new TmpNode(4);
+    node1->neibors.push_back(node2);
+    node1->neibors.push_back(node3);
+    node2->neibors.push_back(node1);
+    node2->neibors.push_back(node4);
+    node3->neibors.push_back(node1);
+    node3->neibors.push_back(node4);
+    node4->neibors.push_back(node2);
+    node4->neibors.push_back(node3);
 
+
+    Graph* gr = new Graph();
+    TmpNode* newNode = gr->cloneGraph(node1);
+    
 
     
+
+
+
+
+
+
+
+
+
+
 
 
     

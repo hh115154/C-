@@ -2,6 +2,7 @@
 #include<set>
 #include<queue>
 #include<cstring>
+#include<map>
 
 
 
@@ -592,6 +593,45 @@ void MetrixGraph::print()
 		}
 		cout << endl;
 	}
+} 
+
+TmpNode* Graph::cloneGraphHelp(TmpNode*node,map<TmpNode*,TmpNode*>& inp2outp ){
+	if(inp2outp.count(node)) 
+		return inp2outp[node];
+	TmpNode* res = new TmpNode(node->val);
+	inp2outp[node] = res;
+	for (int i = 0; i < node->neibors.size(); i++){
+		TmpNode* p = cloneGraphHelp(node->neibors[i],inp2outp);
+		res->neibors.push_back(p);
+	}
+	return res;
 }
+TmpNode* Graph::cloneGraph(TmpNode* node){
+	TmpNode* res = nullptr;
+	if (!node)
+		return nullptr;
+	
+	set<TmpNode*> nodeSet;
+	map<TmpNode*,TmpNode*> in2out;
+	res = cloneGraphHelp(node,in2out);
+	return res;
+}
+
+// TmpNode* Graph::cloneGraphHelp(TmpNode* node,set<TmpNode*>& nodeSet){
+// 	TmpNode* res = new TmpNode(node->val);
+// 	if (node->neibors.empty())
+// 		return res;
+// 	pair<set<TmpNode*>::iterator,bool> pInsert;
+// 	pInsert = nodeSet.insert(node);
+// 	if (pInsert.second)
+// 	{
+// 		for (int i = 0; i < node->neibors.size(); i++)
+// 		{ 
+// 			TmpNode* nei  = cloneGraphHelp(node->neibors[i],nodeSet);
+// 			res->neibors.push_back(nei);
+// 		}
+// 	}
+// 	return res;
+// }
 
 

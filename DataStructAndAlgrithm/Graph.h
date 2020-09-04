@@ -3,6 +3,8 @@
 #include<iostream>
 #include<vector>
 #include<deque>
+#include<set>
+#include<map>
 using namespace std;
 
 #define INF 0x7FFFFFFF
@@ -48,6 +50,16 @@ struct myGreater {
 		return a->dist > b->dist;
 	}
 };
+//8, leetcode 133,clone noneDirected Graph
+class TmpNode{
+public:
+	int val;
+	vector<TmpNode*> neibors;
+	TmpNode():val(0),neibors(vector<TmpNode*>()){}
+	TmpNode(int _v):val(_v),neibors(vector<TmpNode*>()){}
+	TmpNode(int _v,vector<TmpNode*> _nei):val(_v),neibors(_nei){}
+
+};
 
 class Graph
 {
@@ -83,6 +95,10 @@ public:
 	//7,dijkstra shorted pass
 	void dijkstra(int nodeNum);
 
+	//8, leetcode 133,clone noneDirected Graph
+	TmpNode* cloneGraph(TmpNode* node);
+	
+
 private:
 	void printColor();
 	void printPreNode();
@@ -95,7 +111,8 @@ private:
 	void clearGraphSt();
 	int tick;
 	void initSingleSource(int nodeIdx);
-
+	// TmpNode* cloneGraphHelp(TmpNode* node,set<TmpNode*>& nodeSet);
+	TmpNode* cloneGraphHelp(TmpNode*node,map<TmpNode*,TmpNode*>& inp2outp );
 };
 
 //leetcode542 ,
