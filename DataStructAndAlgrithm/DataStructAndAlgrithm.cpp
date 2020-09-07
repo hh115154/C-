@@ -225,31 +225,57 @@ int main()
     // gr->dijkstra(0);
 
 
-    //leetcode133,clone graph
-    
-    TmpNode* node1 = new TmpNode(1);
-    TmpNode* node2 = new TmpNode(2);
-    TmpNode* node3 = new TmpNode(3);
-    TmpNode* node4 = new TmpNode(4);
-    node1->neibors.push_back(node2);
-    node1->neibors.push_back(node3);
-    node2->neibors.push_back(node1);
-    node2->neibors.push_back(node4);
-    node3->neibors.push_back(node1);
-    node3->neibors.push_back(node4);
-    node4->neibors.push_back(node2);
-    node4->neibors.push_back(node3);
-
-
-    Graph* gr = new Graph();
-    TmpNode* newNode = gr->cloneGraph(node1);
+    //leetcode133,clone graph  
+    // TmpNode* node1 = new TmpNode(1);
+    // TmpNode* node2 = new TmpNode(2);
+    // TmpNode* node3 = new TmpNode(3);
+    // TmpNode* node4 = new TmpNode(4);
+    // node1->neibors.push_back(node2);
+    // node1->neibors.push_back(node3);
+    // node2->neibors.push_back(node1);
+    // node2->neibors.push_back(node4);
+    // node3->neibors.push_back(node1);
+    // node3->neibors.push_back(node4);
+    // node4->neibors.push_back(node2);
+    // node4->neibors.push_back(node3);
+    // Graph* gr = new Graph();
+    // TmpNode* newNode = gr->cloneGraph(node1);
     
 
-    
+    //leetcode399,Evaluate Division
+    // vector<pair<string,string>> equ;//{("a","b"),("b","c")};
+    // pair<string,string> a("a","b");
+    // pair<string,string> b("b","c");
+    // equ.push_back(a);
+    // equ.push_back(b);
+	// vector<double> val{2.0,3.0};
+    // vector<pair<string,string>> que;//{("a","c"),("b","a"),("a","e"),("a","a"),("x","x")};
+    // pair<string,string> f("a","c");
+    // pair<string,string> g("b","a");
+    // pair<string,string> c("a","e");
+    // pair<string,string> d("a","a");
+    // pair<string,string> e("x","x");
+    // que.push_back(f);
+    // que.push_back(g);
+    // que.push_back(c);
+    // que.push_back(d);
+    // que.push_back(e);
+    // LeetCode399 dev(equ,val);
+    // vector<double> res = dev.queries(que);
 
+    //leetcode785
+    // vector<vector<int>> tGraph{{1,3},{0,2},{1,3},{0,2}};
+    // vector<vector<int>> fGraph{{1,2,3},{0,2},{0,1,3},{0,2}};
+    // LeetCode785 bg;
+    // bool tRes = bg.isBipartite(tGraph);
+    // bool fRes = bg.isBipartite(fGraph);
 
-
-
+    //leetcode841
+    vector<vector<int>> tGraph{{1},{2},{3},{}};
+    vector<vector<int>> fGraph{{1,3},{3,0,1},{2},{0}};
+    Leetcode841 keyRooms;
+    bool tRes = keyRooms.canVisitAllRooms(tGraph);
+    bool fRes = keyRooms.canVisitAllRooms(fGraph);
 
 
 

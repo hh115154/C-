@@ -5,6 +5,7 @@
 #include<deque>
 #include<set>
 #include<map>
+
 using namespace std;
 
 #define INF 0x7FFFFFFF
@@ -135,6 +136,120 @@ private:
 	vector<vector<MetrixNode*>> metGraph;
 };
 
+class LeetCode399{
+	public:
+	vector<pair<string,string>> equitions;
+	vector<double> values;
+	map<string,map<string,double>> graph;
+	LeetCode399(const vector<pair<string,string>>& _eq,const vector<double> _val):equitions(_eq),values(_val){
+		int i = 0;
+		for(vector<pair<string,string>>::iterator iterEq = equitions.begin();iterEq!= equitions.end();iterEq++){
+           graph[iterEq->first][iterEq->second] = values[i];
+		   graph[iterEq->second][iterEq->first] = values[i]?1/values[i]:0;
+		   i++;
+		}
+	}
+	double dfs(string src,string dest,set<string>& visited){
+		if(!graph.count(src)) return -1;
+		if(src == dest) return 1;
+		double res = -1.0;
+		visited.insert(src);//标记已经访问的节点
+		map<string,double> tmp = graph[src];//降维
+		if(tmp.count(dest)) 
+			return tmp[dest];
+		else
+		{
+			for(map<string,double>::iterator iter = tmp.begin();iter!=tmp.end();iter++){
+				if(visited.count(iter->first))
+					continue;
+				else{
+
+				}
+					res = graph[src][iter->first]*dfs(iter->first,dest,visited);//拆分任务
+					if(res<0)
+						res= -1;
+			}
+		}
+		return res;
+	}
+	vector<double> queries(vector<pair<string,string>> qu ){
+		/*
+		*for each query.first,dfs graph to search query.second,
+		*/
+		vector<double> res;
+		double tmp;
+		set<string> bVis;
+		for (vector<pair<string,string>>::iterator iter = qu.begin();iter!=qu.end();iter++)
+		{
+			tmp = dfs(iter->first,iter->second,bVis);
+			res.push_back(tmp);
+			bVis.clear();
+		}
+		
+		return res;
+	}
+};
+
+class LeetCode785 {//是否图可以只着两种颜色，不同颜色不邻接
+private:
+	bool dfs(Color preColor,int currIdx,vector<vector<int>>& graph,vector<Color>& colors){
+		if(Color::WHITE == colors[currIdx]) 
+			if(preColor ==Color::GRAY)
+				colors[currIdx] = Color::BLACK;
+			else
+				colors[currIdx] = Color::GRAY;
+		else
+			return preColor != colors[currIdx];
+		
+		bool res = true;
+		vector<int> adj = graph[currIdx];
+		for (int i = 0; i < adj.size(); i++)
+		{
+			res = dfs(colors[currIdx],adj[i],graph,colors);
+			if(!res) return res;
+		}
+		
+		return res;
+	}
+public:	
+    bool isBipartite(vector<vector<int>>& graph) {
+		//color the nodes as gray and black
+		bool res = true;
+		vector<Color> nodeColor(graph.size(),Color::WHITE);
+		res = dfs(Color::BLACK,0,graph,nodeColor);
+		return res;
+    }
+};
+
+class Leetcode841{//keys and rooms
+private:
+	void dfs(vector<vector<int>>& rooms,int currIdx,set<int>& avlbKeys,set<int>& vstdRooms){
+		vstdRooms.insert(currIdx);
+		//add new keys and visit new rooms
+		vector<int> newKeys = rooms[currIdx];
+		for (int i = 0; i < newKeys.size(); i++)
+			avlbKeys.insert(newKeys[i]);
+		//visit new rooms
+		bool res = true;
+		for(int i = 0;i<newKeys.size();i++)
+			if(!vstdRooms.count(newKeys[i]))
+				dfs(rooms,newKeys[i],avlbKeys,vstdRooms);
+
+	}
+public:
+
+    bool canVisitAllRooms(vector<vector<int>>& rooms){
+		set<int> avalibleKeys;		
+		set<int> visitedRooms{};
+		dfs(rooms,0,avalibleKeys,visitedRooms);
+		bool res = visitedRooms.size() == rooms.size();
+		return res;
+	}
+
+
+
+
+};
 
 
 
