@@ -14,6 +14,7 @@
 #include<algorithm>
 #include<set>
 #include<map>
+#include"BinarySearch.h"
 
 using namespace std;
 int main()
@@ -29,7 +30,7 @@ int main()
     //delete sort;
 
     //********LinkList**********
-    LinkList* list = new LinkList(arr, len);
+    // LinkList* list = new LinkList(arr, len);
     //list->GetMidNode();
     //list->GetLastKthNode(2);
     //list->GetLastKthNode(3);
@@ -92,10 +93,10 @@ int main()
 
 
     //binary tree
-    BTreeNode* bTreeNode =new BTreeNode(arr, len);
+    // BTreeNode* bTreeNode =new BTreeNode(arr, len);
     
     //leetCode 124,maxPathSum
-    int maxPathSum = bTreeNode->getMaxPathSum();
+    // int maxPathSum = bTreeNode->getMaxPathSum();
 
 
  //   vector<int> ivct;
@@ -271,15 +272,60 @@ int main()
     // bool fRes = bg.isBipartite(fGraph);
 
     //leetcode841
-    vector<vector<int>> tGraph{{1},{2},{3},{}};
-    vector<vector<int>> fGraph{{1,3},{3,0,1},{2},{0}};
-    Leetcode841 keyRooms;
-    bool tRes = keyRooms.canVisitAllRooms(tGraph);
-    bool fRes = keyRooms.canVisitAllRooms(fGraph);
+    // vector<vector<int>> tGraph{{1},{2},{3},{}};
+    // vector<vector<int>> fGraph{{1,3},{3,0,1},{2},{0}};
+    // Leetcode841 keyRooms;
+    // bool tRes = keyRooms.canVisitAllRooms(tGraph);
+    // bool fRes = keyRooms.canVisitAllRooms(fGraph);
+
+    //leetcode11,two pointers
+    // Leetcode11 area;
+    // vector<int> x{1,8,6,2,5,4,8,3,7};
+    // int maxArea = area.getMaxArea(x);
+
+    //leetcode42,tow pointers
+    // Leetcode42 rain;
+    // vector<int> x1{0,1,0,2,1,0,1,3,2,1,2,1};
+    // vector<int> x2{0,1,4,0,4,1,0};
+    // int rainV = rain.getRain(x1);
+    // cout<<rainV<<endl;
+    // rainV = rain.getRain(x2);
+    // cout<<rainV<<endl;
+    // rainV = Stack::getrain(x1);
+    // cout<<rainV<<endl;
+    // rainV = Stack::getrain(x2);
+    // cout<<rainV<<endl;
+
+    //leetcode283
+    // vector<int> x3{0,1,0,2,1,0,1,3,2,1,2,1};
+    // Leetcode283::movezeros(x3);
+    // for (int i = 0; i < x3.size(); i++)
+    //     cout<<x3[i]<<endl;
+    
+    //leetcode80
+    // vector<int> x4{1,1,1,2,2,3};
+    // int newLen = Leetcode80::removeDuplicates(x4);
+    // for(int i=0;i<newLen;i++)
+    //     cout<<x4[i]<<endl;
+
+    //leetcode1047
+    // string str ="abbaca";
+    // Stack::removeDuplicates(str);
+    // cout<<str<<endl;
+
+    //binary search
+    BinarySearch bs;
+    // vector<int> arr1{0,2,3,5,7,10};
+    // int idx = bs.searchInt(arr1,2);
+    // cout <<idx<<endl;
+
+    //leetcode852
+    vector<int>arr2{0,1,2,2,5,3,0};
+    int idx1 = bs.peakIndexInMountainArray(arr2);
+    cout<<idx1<<endl;
 
 
-
-
+    
 
 
 

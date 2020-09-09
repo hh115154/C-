@@ -1,11 +1,18 @@
 #pragma once
+#include<vector>
+#include<string>
+using namespace std;
 
 class Stack
 {
 public:
-	//leetCode 739,¼ÆËãÐòÁÐÖÐ×î½üµÄÒ»¸ö´óÓÚµ±Ç°ÊýµÄÎ»ÖÃ¡£
+	//leetCode 739,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½Ç°ï¿½ï¿½ï¿½ï¿½Î»ï¿½Ã¡ï¿½
 	static void DailayTemperater(int arr[],int len);
 	//leetCode735
 	static void AsteroidCrash(int arr[], int len);
+	//leetcode 42
+	static int getrain(vector<int>arr);
+	//leetcode 1047
+	static void removeDuplicates(string& str);
 };
 
