@@ -37,11 +37,14 @@ int main()
     //Node* newList = list->copyLinkList();
 
     //********Stack************
-    //Stack::DailayTemperater(arr, len);
+    //leetcode 739
+    //int temperatures[] = { 73, 74, 75, 71, 69, 72, 76, 73 };
+    //int arrLen = 8;
+    //Stack::DailayTemperater(temperatures, arrLen);
     //Stack::AsteroidCrash(arr, len);
 
     //********Heap*************
-    int k = 5;
+    //int k = 5;
     ////case1
     //Heap::GetTopK(arr, len, k);
     //Heap::GetTopK1(arr, len, k);
@@ -286,15 +289,15 @@ int main()
     //leetcode42,tow pointers
     // Leetcode42 rain;
     // vector<int> x1{0,1,0,2,1,0,1,3,2,1,2,1};
-    // vector<int> x2{0,1,4,0,4,1,0};
+    vector<int> x2{0,1,4,0,4,1,0};
     // int rainV = rain.getRain(x1);
     // cout<<rainV<<endl;
-    // rainV = rain.getRain(x2);
+    // int rainV = rain.getRain(x2);
     // cout<<rainV<<endl;
     // rainV = Stack::getrain(x1);
     // cout<<rainV<<endl;
-    // rainV = Stack::getrain(x2);
-    // cout<<rainV<<endl;
+    int rainV = Stack::getrain(x2);
+     cout<<rainV<<endl;
 
     //leetcode283
     // vector<int> x3{0,1,0,2,1,0,1,3,2,1,2,1};
@@ -320,9 +323,11 @@ int main()
     // cout <<idx<<endl;
 
     //leetcode852
-    vector<int>arr2{0,1,2,2,5,3,0};
-    int idx1 = bs.peakIndexInMountainArray(arr2);
-    cout<<idx1<<endl;
+    //vector<int>arr2{0,1,2,2,5,3,0};
+    //int idx1 = bs.peakIndexInMountainArray(arr2);
+    //cout<<idx1<<endl;
+
+
 
 
     

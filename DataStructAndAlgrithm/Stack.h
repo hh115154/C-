@@ -6,13 +6,25 @@ using namespace std;
 class Stack
 {
 public:
-	//leetCode 739,���������������һ�����ڵ�ǰ����λ�á�
+	//leetCode739,easy
 	static void DailayTemperater(int arr[],int len);
-	//leetCode735
+	//leetCode735,easy
 	static void AsteroidCrash(int arr[], int len);
-	//leetcode 42
+	//leetcode42,hard
 	static int getrain(vector<int>arr);
-	//leetcode 1047
+	//leetcode1047,easy
 	static void removeDuplicates(string& str);
+	//leetcode20,easy
+	static bool isStrValid(const string& str);
+	//leetcode496,easy
+	static vector<int> nextGreaterNum(vector<int>subset, vector<int>arr);
+	//leetcode503,medium
+	static vector<int> nextGreaterNum2(vector<int>arr);
+	//leetcode394,medium
+	static string decodeString(const string& str);
+	//leetcode636,medium
+	static vector<int> exclusiveTime(int n, vector<string>& logs);
+	//leetcode84,hard
+	static int largestRectangleArea(vector<int>& height);
 };
 

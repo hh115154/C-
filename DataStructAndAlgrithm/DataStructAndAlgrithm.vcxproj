@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BinarySearch.cpp" />
     <ClCompile Include="DataStructAndAlgrithm.cpp" />
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="HashMap.cpp" />
@@ -149,6 +150,7 @@
     <ClCompile Include="TreeNode.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BinarySearch.h" />
     <ClInclude Include="Graph.h" />
     <ClInclude Include="HashMap.h" />
     <ClInclude Include="Heap.h" />

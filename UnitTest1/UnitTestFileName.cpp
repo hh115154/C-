@@ -5,6 +5,7 @@
 #include"LinkList.h"
 #include"TreeNode.h"
 #include"Sort.h"
+#include"Stack.h"
 #include<algorithm>
 
 using namespace std;
@@ -86,5 +87,68 @@ namespace NameSpaceName
 			s->sort(arr, len);
 			compare(arr, arrRes);
 		}
+	};
+	TEST_CLASS(TestClassStack) {
+public:
+	TEST_METHOD(TestIsValid) {
+		string str = "[{}([])]";
+		string str1 = "[](){";
+		bool res = Stack::isStrValid(str);
+		bool res1 = Stack::isStrValid(str1);
+		Assert::IsTrue(res);
+		Assert::IsFalse(res1);
+	}
+	TEST_METHOD(TestNextGreaterNum) {
+		vector<int> set1{ 4,1,2 };
+		vector<int> arr1{ 1,3,4,2 };
+		vector<int> expRes1{ -1,3,-1 };
+		vector<int> res1 = Stack::nextGreaterNum(set1, arr1);
+		Assert::IsTrue(res1==expRes1);
+		vector<int> set2{ 2,4 };
+		vector<int> arr2{ 1,2,3,4 };
+		vector<int> expRes2{ 3,-1 };
+		vector<int> res2 = Stack::nextGreaterNum(set2, arr2);
+		Assert::IsTrue(res2==expRes2);
+	}
+	TEST_METHOD(TestNextGreaterNum2) {
+
+		vector<int> arr1{ 1,2,1 };
+		vector<int> expRes1{ 2,-1,2 };
+		vector<int> res1 = Stack::nextGreaterNum2( arr1);
+		Assert::IsTrue(res1 == expRes1);
+		
+		vector<int> arr2{ 1,3,4,2 };
+		vector<int> expRes2{ 3,4,-1,3 };
+		vector<int> res2 = Stack::nextGreaterNum2( arr2);
+		Assert::IsTrue(res2 == expRes2);
+	}
+	TEST_METHOD(TestDecodeString) {
+		string str("2[2[abc]1[de]]");
+		string expRes("abcabcdeabcabcde");
+		string res = Stack::decodeString(str);
+		Assert::AreEqual(res, expRes);
+
+		string str1("2[2[abc]2[de]]12[f]");
+		string expRes1("abcabcdedeabcabcdedeffffffffffff");
+		string res1 = Stack::decodeString(str1);
+		Assert::AreEqual(res1, expRes1);
+	}
+
+	TEST_METHOD(TestExclusiveTime) {
+		vector<string> str{ "0:start:0","0:start:2","0:end:5","1:start:7","1:end:7","0:end:8" };
+		vector<int> expRes{8,1};
+		vector<int> res = Stack::exclusiveTime(2,str);
+		Assert::IsTrue(res== expRes);
+
+		vector<string> str1{ "0:start:0","1:start:1","1:end:1","2:start:3","2:end:3","0:end:4" };
+		vector<int> expRes1{ 3,1,1};
+		vector<int> res1 = Stack::exclusiveTime(3, str1);
+		Assert::IsTrue(res1 == expRes1);
+
+		vector<string> str2{ "0:start:0","1:start:2","1:end:5","0:end:6" };
+		vector<int> expRes2{ 3,4 };
+		vector<int> res2 = Stack::exclusiveTime(2, str2);
+		Assert::IsTrue(res2 == expRes2);
+	}
 	};
 }

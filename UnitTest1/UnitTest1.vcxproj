@@ -120,7 +120,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <AdditionalLibraryDirectories>$(VCInstallDir)UnitTest\lib;D:\学习\C++\DataStructAndAlgrithm\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>LinkList.obj;Sort.obj;TreeNode.obj;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>LinkList.obj;Sort.obj;TreeNode.obj;Stack.obj;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

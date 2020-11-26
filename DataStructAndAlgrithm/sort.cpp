@@ -1,7 +1,7 @@
 #include<iostream>
 #include "Sort.h"
 #include<cstring>
-
+//测试中文
 void QuickSort::sort(int arr[], int len)
 {
 	quicksort(arr, 0, len - 1);
