@@ -16,6 +16,9 @@ public:
 	static void removeDuplicates(string& str);
 	//leetcode20,easy
 	static bool isStrValid(const string& str);
+	static bool isStrValid1(string s);
+	static bool isStrValid2(string s);
+	static bool isStrValid3(string str);
 	//leetcode496,easy
 	static vector<int> nextGreaterNum(vector<int>subset, vector<int>arr);
 	//leetcode503,medium

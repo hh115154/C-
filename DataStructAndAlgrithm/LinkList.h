@@ -38,6 +38,15 @@ public:
 	//algrithm 3,����������
 	Node* copyLinkList();
 
+	//leetcode141
+	bool HasCycle();
+
+	//leetcode206
+	Node* ReverseList();
+
+	//leetcode24
+	Node* swapPairs();
+	Node* swapParis_Reverse(Node* head);
 
 	Node* head;
 

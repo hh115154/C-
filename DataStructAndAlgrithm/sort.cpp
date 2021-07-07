@@ -1,7 +1,7 @@
 #include<iostream>
 #include "Sort.h"
 #include<cstring>
-//测试中文
+
 void QuickSort::sort(int arr[], int len)
 {
 	quicksort(arr, 0, len - 1);
@@ -12,7 +12,7 @@ void QuickSort::quicksort(int arr[], int left, int right)
 {
 	if (left < right)
 	{
-		int pivotIdx = partition(arr, left, right);//�ֿ�ԭ���У�������м�λ��
+		int pivotIdx = partition(arr, left, right);//返回中间大小的位置，并将原数组分为小数区和大数区
 		quicksort(arr, left, pivotIdx - 1);
 		quicksort(arr, pivotIdx + 1, right);
 	}
@@ -22,22 +22,21 @@ void QuickSort::quicksort(int arr[], int left, int right)
 int QuickSort::partition(int arr[], int left, int right)
 {
 	/*
-	* ����ָ�� j���죩 �� smallEdge������,һ����׼ֵ��
-	* ����left��right��ÿ��j++
-	* ֻ������С��ʱsmallEdge++����������ָ���µ���,�����µ�С������������ΪsmallEdge����һ����Ϊ����
+	* 双指针的方法，快指针向前遍历寻找小数，然后与慢指针位置的大数替换，慢指针再前移
+	* 结果是前一半是小数，后一半是大数
 	*/
 	int pivot = arr[right];
-	int smallEdge = left - 1;//��λ��ΪСԪ�ص����ұ߽�
-	for (int j = left; j < right; j++)//��j������������
+	int smallEdge = left;//慢指针
+	for (int j = left; j < right; j++)//快指针
 	{
 		if (arr[j] < pivot)
 		{
-			smallEdge++;
 			swap(arr[smallEdge], arr[j]);
+			smallEdge++;
 		}
 	}
-	smallEdge++;//�����󣬽����Ԫ�أ�pivot����СԪ�ر߽���һ��Ԫ���滻λ�ã��Ӷ�ʹ���Ϊ�м�Ԫ��
-	swap(arr[smallEdge], arr[right]);
+
+	swap(arr[smallEdge], arr[right]);//最后将末尾的pivot与满指针位置的大数替换
 
 	return smallEdge;
 }
@@ -63,7 +62,7 @@ void MergeSort::merge(int arr[], int left, int mid, int end)
 {
 	int k = 0;
 	int i = left;
-	int j = mid + 1;//ע������ĸ�ֵ����Ҫ�ο��ⲿ�ݹ�ʱ�ָ��λ��
+	int j = mid + 1;
 	int* tmp = new int[end - left + 1];
 
 	while (i <= mid && j <= end)

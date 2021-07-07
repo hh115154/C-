@@ -42,6 +42,12 @@
     <ClCompile Include="BinarySearch.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="PolyAlgorithm.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="StringProcess.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Sort.h">
@@ -66,6 +72,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="BinarySearch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PolyAlgorithm.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="StringProcess.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

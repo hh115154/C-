@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -145,8 +145,10 @@
     <ClCompile Include="HashMap.cpp" />
     <ClCompile Include="Heap.cpp" />
     <ClCompile Include="LinkList.cpp" />
+    <ClCompile Include="PolyAlgorithm.cpp" />
     <ClCompile Include="Sort.cpp" />
     <ClCompile Include="Stack.cpp" />
+    <ClCompile Include="StringProcess.cpp" />
     <ClCompile Include="TreeNode.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -155,8 +157,10 @@
     <ClInclude Include="HashMap.h" />
     <ClInclude Include="Heap.h" />
     <ClInclude Include="LinkList.h" />
+    <ClInclude Include="PolyAlgorithm.h" />
     <ClInclude Include="Sort.h" />
     <ClInclude Include="Stack.h" />
+    <ClInclude Include="StringProcess.h" />
     <ClInclude Include="TreeNode.h" />
   </ItemGroup>
   <ItemGroup>

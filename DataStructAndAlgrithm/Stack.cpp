@@ -172,6 +172,120 @@ bool Stack::isStrValid(const string& str)
     return st.empty();
 }
 
+bool Stack::isStrValid1(string s)
+{
+    stack<char> stk;
+    for (int index = 0; index < s.length(); index++)
+    {
+        char ch = s[index];
+        if (ch == '(' || ch == '{' || ch == '[')
+        {
+            stk.push(ch);
+        }
+        else
+        {
+            if (stk.empty()) return false;
+            switch (ch)
+            {
+            case ')':
+                if (stk.top() == '(')
+                {
+                    stk.pop();
+                }
+                else
+                {
+                    return false;
+                }
+                break;
+            case '}':
+                if (stk.top() == '{')
+                {
+                    stk.pop();
+                }
+                else
+                {
+                    return false;
+                }
+                break;
+            case ']':
+                if (stk.top() == '[')
+                {
+                    stk.pop();
+                }
+                else
+                {
+                    return false;
+                }
+                break;
+            default:break;
+            }
+        }
+    }
+
+    return stk.empty();
+}
+
+bool Stack::isStrValid2(string s)
+{
+    stack<char> charStack;
+    unordered_map<char, char> charMap = { {')','('}, {']','['}, {'}','{'} };//注意charMap的使用
+    for (int index = 0; index < s.length(); index++)
+    {
+        char ch = s[index];
+        if (charMap.count(ch) > 0)
+        {//右括号
+            if (charStack.empty() || charStack.top() != charMap[ch])
+            {//栈为空，或者栈顶不是对应的左括号
+                return false;
+            }
+            else
+            {
+                charStack.pop();
+            }
+        }
+        else
+        {//左括号
+            charStack.push(ch);
+        }
+    }
+    return charStack.empty();
+
+}
+
+bool Stack::isStrValid3(string str)
+{
+    stack<char> stack;
+    //遍历所有的元素
+    for (int i = 0; i < str.size(); i++) {
+        char c = str[i];
+        //如果是左括号，就把他们对应的右括号压栈
+        if (c == '(') {
+            stack.push(')');
+        }
+        else if (c == '{') {
+            stack.push('}');
+        }
+        else if (c == '[') {
+            stack.push(']');
+        }
+        else if (stack.empty() || stack.top() != c) {
+            //否则就只能是右括号。
+            //1，如果栈为空，说明括号无法匹配。
+            //2，如果栈不为空，栈顶元素就要出栈，和这个右括号比较。
+            //如果栈顶元素不等于这个右括号，说明无法匹配，
+            //直接返回false。
+            return false;
+        }
+        else
+        {
+            stack.pop();
+        }
+    }
+    //最后如果栈为空，说明完全匹配，是有效的括号。
+    //否则不完全匹配，就不是有效的括号
+    return stack.empty();
+}
+
 vector<int> Stack::nextGreaterNum(vector<int> subset, vector<int> arr)
 {
     vector<int> res;

@@ -15,12 +15,14 @@
 #include<set>
 #include<map>
 #include"BinarySearch.h"
+#include "PolyAlgorithm.h"
+#include "StringProcess.h"
 
 using namespace std;
 int main()
 {
-    int len = 10;
-    int arr[] = { -87,34,-6,-18,-75,9,19,-30,129,-6 };
+    //int len = 10;
+    //int arr[] = { -87,34,-6,-18,-75,9,19,-30,129,-6 };
     // sort(arr, arr+len);
 
     //********sort***********
@@ -29,12 +31,15 @@ int main()
     // sort->sort(arr, len);
     //delete sort;
 
+
     //********LinkList**********
-    // LinkList* list = new LinkList(arr, len);
+     //LinkList* list = new LinkList(arr, len);
     //list->GetMidNode();
     //list->GetLastKthNode(2);
     //list->GetLastKthNode(3);
+    //list->ReverseList();
     //Node* newList = list->copyLinkList();
+     //list->swapPairs();
 
     //********Stack************
     //leetcode 739
@@ -42,6 +47,8 @@ int main()
     //int arrLen = 8;
     //Stack::DailayTemperater(temperatures, arrLen);
     //Stack::AsteroidCrash(arr, len);
+     //string s = "{[]}";
+     //bool ret = Stack::isStrValid2(s);
 
     //********Heap*************
     //int k = 5;
@@ -289,15 +296,15 @@ int main()
     //leetcode42,tow pointers
     // Leetcode42 rain;
     // vector<int> x1{0,1,0,2,1,0,1,3,2,1,2,1};
-    vector<int> x2{0,1,4,0,4,1,0};
+    //vector<int> x2{0,1,4,0,4,1,0};
     // int rainV = rain.getRain(x1);
     // cout<<rainV<<endl;
     // int rainV = rain.getRain(x2);
     // cout<<rainV<<endl;
     // rainV = Stack::getrain(x1);
     // cout<<rainV<<endl;
-    int rainV = Stack::getrain(x2);
-     cout<<rainV<<endl;
+    //int rainV = Stack::getrain(x2);
+     //cout<<rainV<<endl;
 
     //leetcode283
     // vector<int> x3{0,1,0,2,1,0,1,3,2,1,2,1};
@@ -317,7 +324,7 @@ int main()
     // cout<<str<<endl;
 
     //binary search
-    BinarySearch bs;
+    //BinarySearch bs;
     // vector<int> arr1{0,2,3,5,7,10};
     // int idx = bs.searchInt(arr1,2);
     // cout <<idx<<endl;
@@ -326,6 +333,32 @@ int main()
     //vector<int>arr2{0,1,2,2,5,3,0};
     //int idx1 = bs.peakIndexInMountainArray(arr2);
     //cout<<idx1<<endl;
+
+    //PolyAlgorithm
+    //vector<Point> pointVec;
+    //pointVec.push_back(Point(0, 0));
+    //pointVec.push_back(Point(0, 1));
+    //pointVec.push_back(Point(1, 1));
+    //pointVec.push_back(Point(1, 0));
+    //Point p = Point(-1, 0);
+    //string str = PolygonAlgorithm::rayCasting(p, pointVec);
+    //cout << "Result=" << str;
+
+    //vector<string> vectorStr = { "leetcode","leet","lee","le","leetco" };
+    //string str = longestCommonPrefix_2(vectorStr);
+
+    //string str = "google";
+    //int index = FirstNotRepeatingChar(str);
+    //int index = FirstNotRepeatingChar_hashmap(str);
+    //int index = FirstNotRepeatingChar_array(str);
+    //int index = FirstNotRepeatingChar_bitset(str);
+//string A = "youzan";
+//string B = "anzyou";
+//bool ret = solve_1(A, B);
+KMP* kmp = new KMP("ABABA");
+int ret = kmp->search("CABAABABAC");
+
+
 
 
 
